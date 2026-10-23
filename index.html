@@ -202,9 +202,21 @@ header.solid{background:rgba(41,26,20,.96);backdrop-filter:blur(10px);-webkit-ba
 .part{font:500 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-2)}
 .combo-note{margin-top:18px;color:var(--ink-soft);max-width:70ch}
 @media (max-width:700px){.combo{grid-template-columns:1fr}.combo .plus{justify-self:center}}
-.form-pics{margin-top:clamp(28px,4vw,40px)}
-.form-pics img{aspect-ratio:16/10;min-height:0}
-@media (max-width:560px){.form-pics img{aspect-ratio:4/5}}
+/* gallery */
+.gal{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal button{display:block;width:100%;padding:0;border:0;background:var(--beige);border-radius:18px;overflow:hidden;cursor:zoom-in;aspect-ratio:1}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gal button:hover img{transform:scale(1.04)}
+.gal button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (max-width:700px){.gal{grid-template-columns:repeat(3,1fr);gap:8px}.gal button{border-radius:12px}}
+.lb{position:fixed;inset:0;z-index:1000;background:rgba(28,18,14,.94);display:none;align-items:center;justify-content:center;padding:64px 16px}
+.lb.on{display:flex}
+.lb img{max-width:min(92vw,900px);max-height:calc(100vh - 140px);max-height:calc(100dvh - 140px);border-radius:14px;object-fit:contain}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.25);color:#fff;display:grid;place-items:center;cursor:pointer}
+.lb button svg{width:22px;height:22px}
+.lb .lb-x{top:12px;right:12px}.lb .lb-p{left:12px;top:50%;transform:translateY(-50%)}.lb .lb-n{right:12px;top:50%;transform:translateY(-50%)}
+.lb .lb-c{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#e9dccf;font:400 14px/1.4 var(--sans)}
+@media (max-width:700px){.lb .lb-p,.lb .lb-n{top:auto;bottom:12px;transform:none}.lb .lb-c{bottom:26px}}
 /* courses-old */
 .courses4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .c4{border:1px solid var(--line);border-radius:20px;padding:24px 22px;display:grid;gap:10px;align-content:start;background:#fff}
@@ -220,9 +232,7 @@ header.solid{background:rgba(41,26,20,.96);backdrop-filter:blur(10px);-webkit-ba
 .form-card svg{width:42px;height:42px;padding:9px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--gold);color:var(--gold-2)}
 .form-card h3{font-size:clamp(26px,2.6vw,32px)}
 .form-card p{color:var(--ink-soft)}
-.form-pics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-pics img{width:100%;height:100%;min-height:220px;object-fit:cover;border-radius:22px}
-@media (max-width:960px){.forms{grid-template-columns:1fr 1fr}.form-pics{grid-column:1/-1}.form-pics img{aspect-ratio:4/5;height:auto}}
+@media (max-width:960px){.forms{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.forms{grid-template-columns:1fr}}
 .steps3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
 .steps3 li{border:1px solid var(--line-d);border-radius:22px;padding:28px 26px;display:grid;gap:12px;align-content:start;background:rgba(255,255,255,.03)}
@@ -424,10 +434,21 @@ footer{background:#170e0a;color:#a99382;padding-block:34px calc(104px + env(safe
         </article>
       </div>
       <p class="combo-note">Kurs zawsze łączy obie części. Nie da się go zrobić wyłącznie online.</p>
-      <div class="form-pics">
-        <img src="img/french-migdal.jpg" alt="Manicure wykonany przez Alinę: french na migdałach" loading="lazy">
-        <img src="img/nude-krotkie.jpg" alt="Manicure wykonany przez Alinę: nude na krótkich paznokciach" loading="lazy">
-      </div>
+      <h3 class="forms-title">Stylizacje</h3>
+      <ul class="gal" id="gal">
+        <li><button type="button" data-i="0" aria-label="Powiększ zdjęcie: grafitowy kolor na kwadratowych paznokciach"><img src="img/k-grafit-kwadrat.jpg" alt="Stylizacja paznokci: grafitowy kolor na kwadratowych paznokciach" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="1" aria-label="Powiększ zdjęcie: bordowy kolor na migdałach"><img src="img/k-bordo-migdal.jpg" alt="Stylizacja paznokci: bordowy kolor na migdałach" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="2" aria-label="Powiększ zdjęcie: czerwień z cyrkonią"><img src="img/k-czerwien-cyrkonia.jpg" alt="Stylizacja paznokci: czerwień z cyrkonią" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="3" aria-label="Powiększ zdjęcie: różowy z drobnym brokatem"><img src="img/k-roz-brokat.jpg" alt="Stylizacja paznokci: różowy z drobnym brokatem" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="4" aria-label="Powiększ zdjęcie: nude z cienkimi liniami"><img src="img/k-nude-linie.jpg" alt="Stylizacja paznokci: nude z cienkimi liniami" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="5" aria-label="Powiększ zdjęcie: nude ze zdobieniem w tulipany"><img src="img/k-tulipan-zdobienie.jpg" alt="Stylizacja paznokci: nude ze zdobieniem w tulipany" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="6" aria-label="Powiększ zdjęcie: nude ze srebrnym półksiężycem"><img src="img/k-nude-srebro.jpg" alt="Stylizacja paznokci: nude ze srebrnym półksiężycem" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="7" aria-label="Powiększ zdjęcie: niebieski ze złotym zdobieniem"><img src="img/k-niebieski-zloto.jpg" alt="Stylizacja paznokci: niebieski ze złotym zdobieniem" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="8" aria-label="Powiększ zdjęcie: bordowe ombre"><img src="img/k-bordo-ombre.jpg" alt="Stylizacja paznokci: bordowe ombre" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="9" aria-label="Powiększ zdjęcie: biel i róż z kwiatem i motylem"><img src="img/k-kwiat-motyl.jpg" alt="Stylizacja paznokci: biel i róż z kwiatem i motylem" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="10" aria-label="Powiększ zdjęcie: długie stiletto z różowym wzorem"><img src="img/k-stiletto-wzor.jpg" alt="Stylizacja paznokci: długie stiletto z różowym wzorem" loading="lazy" decoding="async"></button></li>
+        <li><button type="button" data-i="11" aria-label="Powiększ zdjęcie: mleczna biel na kwadratowych paznokciach"><img src="img/k-biale-kwadrat.jpg" alt="Stylizacja paznokci: mleczna biel na kwadratowych paznokciach" loading="lazy" decoding="async"></button></li>
+      </ul>
     </div>
   </section>
 
@@ -566,6 +587,29 @@ footer{background:#170e0a;color:#a99382;padding-block:34px calc(104px + env(safe
     const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target);} }),{threshold:.12});
     document.querySelectorAll('[data-rv]').forEach((el,i)=>{ if(el.getBoundingClientRect().top>innerHeight){ el.classList.add('pre'); el.style.transitionDelay=((i%3)*80)+'ms'; io.observe(el); } });
   }
+})();
+</script>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie" hidden>
+  <button type="button" class="lb-x" aria-label="Zamknij"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button type="button" class="lb-p" aria-label="Poprzednie zdjęcie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <img alt="">
+  <button type="button" class="lb-n" aria-label="Następne zdjęcie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  <p class="lb-c" aria-live="polite"></p>
+</div>
+<script>
+(function(){
+  const g=document.getElementById('gal'), lb=document.getElementById('lb'); if(!g||!lb) return;
+  const imgs=[...g.querySelectorAll('img')], big=lb.querySelector('img'), cap=lb.querySelector('.lb-c');
+  let i=0, last=null, sx=null;
+  function show(n){ i=(n+imgs.length)%imgs.length; big.src=imgs[i].src; big.alt=imgs[i].alt; cap.textContent=(i+1)+' / '+imgs.length; }
+  function open(n){ last=document.activeElement; show(n); lb.hidden=false; lb.classList.add('on'); document.body.style.overflow='hidden'; lb.querySelector('.lb-x').focus(); }
+  function close(){ lb.classList.remove('on'); lb.hidden=true; document.body.style.overflow=''; if(last) last.focus(); }
+  g.addEventListener('click',e=>{ const b=e.target.closest('button[data-i]'); if(b) open(+b.dataset.i); });
+  lb.querySelector('.lb-x').onclick=close; lb.querySelector('.lb-p').onclick=()=>show(i-1); lb.querySelector('.lb-n').onclick=()=>show(i+1);
+  lb.addEventListener('click',e=>{ if(e.target===lb) close(); });
+  addEventListener('keydown',e=>{ if(lb.hidden) return; if(e.key==='Escape') close(); else if(e.key==='ArrowLeft') show(i-1); else if(e.key==='ArrowRight') show(i+1); });
+  lb.addEventListener('touchstart',e=>{ sx=e.touches[0].clientX; },{passive:true});
+  lb.addEventListener('touchend',e=>{ if(sx===null) return; const d=e.changedTouches[0].clientX-sx; if(Math.abs(d)>50) show(i+(d<0?1:-1)); sx=null; });
 })();
 </script>
 </body>
