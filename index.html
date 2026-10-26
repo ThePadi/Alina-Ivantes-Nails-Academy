@@ -270,8 +270,8 @@ header.solid{background:rgba(41,26,20,.96);backdrop-filter:blur(10px);-webkit-ba
 /* contact */
 .contact{background:#1f140f;color:var(--cream)}
 .contact h2.big{font-size:clamp(52px,8vw,96px);font-weight:400}
-.c-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(40px,6vw,72px);padding-bottom:28px;border-bottom:1px solid var(--line-d);font-size:16px;color:var(--help)}
-.c-row a{text-decoration:none;color:var(--cream)}
+.c-row{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:24px;margin-top:clamp(40px,6vw,72px);padding-bottom:28px;border-bottom:1px solid var(--line-d);font-size:16px;color:var(--help)}
+.c-row a{text-decoration:none;color:var(--cream);display:inline-flex;align-items:center;min-height:44px}
 .c-row a:hover{color:var(--gold)}
 .c-row small{display:block;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .c-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,72px);padding-top:clamp(36px,5vw,56px)}
@@ -292,7 +292,9 @@ textarea{min-height:90px;resize:vertical}
 form .btn{grid-column:1/-1;justify-self:start;min-width:240px}
 .f-note{grid-column:1/-1;font-size:14px;color:var(--help)}
 .f-msg{grid-column:1/-1;font-size:15px;color:var(--gold);min-height:1.2em}
-@media (max-width:880px){.c-row{grid-template-columns:1fr}.c-grid{grid-template-columns:1fr}}
+.salon-book{margin:22px auto 0;text-align:center;color:var(--help);font-size:16px}
+.salon-book a{display:inline-flex;align-items:center;min-height:44px;color:var(--gold);text-underline-offset:4px}
+@media (max-width:880px){.c-row{grid-template-columns:1fr;justify-content:stretch}.c-grid{grid-template-columns:1fr}}
 @media (max-width:520px){form{grid-template-columns:1fr}form .btn{width:100%;min-width:0}}
 
 footer{background:#170e0a;color:#a99382;padding-block:34px calc(104px + env(safe-area-inset-bottom,0px));font-size:14px}
@@ -469,6 +471,7 @@ footer{background:#170e0a;color:#a99382;padding-block:34px calc(104px + env(safe
         <a class="btn btn-gold" href="https://wa.me/48789462208?text=Dzie%C5%84%20dobry%2C%20chcia%C5%82abym%20zapyta%C4%87%20o%20kurs%20manicure." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Napisz na WhatsApp</a>
         <a class="btn btn-line" href="tel:+48789462208">Zadzwoń: 789 462 208</a>
       </div>
+      <p class="salon-book">Chcesz umówić się na wizytę w moim salonie? <a href="https://aliczkabrokatowakosmetyka.booksy.com/k/" target="_blank" rel="noopener">Zarezerwuj wizytę w Booksy</a></p>
       <p class="thanks" style="margin:40px auto 0;text-align:center"><b>Dziękuję, że jesteś tutaj.</b>Wierzę, że dobrze przekazana wiedza i staranna praktyka pomagają rozwijać umiejętności i budować pewność siebie.</p>
     </div>
   </section>
@@ -488,6 +491,7 @@ footer{background:#170e0a;color:#a99382;padding-block:34px calc(104px + env(safe
       <div class="c-row">
         <div><small>WhatsApp</small><a href="https://wa.me/48789462208" target="_blank" rel="noopener">Napisz wiadomość</a></div>
         <div><small>Telefon</small><a href="tel:+48789462208">789 462 208</a></div>
+        <div><small>Wizyta w salonie</small><a href="https://aliczkabrokatowakosmetyka.booksy.com/k/" target="_blank" rel="noopener">Zarezerwuj w Booksy</a></div>
         <div><small>Media społecznościowe</small><a href="https://www.instagram.com/aliczka_ivanets_/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/aliczka.ivanets" target="_blank" rel="noopener">Facebook</a></div>
       </div>
       <div class="c-grid">
@@ -528,6 +532,7 @@ footer{background:#170e0a;color:#a99382;padding-block:34px calc(104px + env(safe
       <a href="#zapis">Jak się zapisać</a>
       <a href="#kontakt">Kontakt</a>
       <a href="tel:+48789462208">789 462 208</a>
+      <a href="https://aliczkabrokatowakosmetyka.booksy.com/k/" target="_blank" rel="noopener">Rezerwacja w Booksy</a>
     </div>
   </div>
 </footer>
